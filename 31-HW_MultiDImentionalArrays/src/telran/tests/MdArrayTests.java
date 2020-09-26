@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import telran.util.MdArray;
 
 class MdArrayTests {
-	MdArray mdArray;
+	MdArray<Integer> mdArray;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -63,19 +63,22 @@ class MdArrayTests {
 		try {
 			int [] index = {0,0,5};
 			mdArray.setValue(index,-99);
-		} catch (Exception e) {
+            fail();
+		} catch (RuntimeException e) {
 			//Expected exception
 		}
 		try {
 			int [] index = {0,0};
 			mdArray.setValue(index,-99);
-		} catch (Exception e) {
+            fail();
+		} catch (RuntimeException e) {
 			//Expected exception
 		}
 		try {
 			int [] index = {0,0,0,5};
 			mdArray.setValue(index,-99);
-		} catch (Exception e) {
+            fail();
+		} catch (RuntimeException e) {
 			//Expected exception
 		}
 	}
@@ -91,19 +94,22 @@ class MdArrayTests {
 		try {
 			int [] index = {0,0,5};
 			mdArray.getValue(index);
-		} catch (Exception e) {
+            fail();
+		} catch (RuntimeException e) {
 			//Expected exception
 		}
 		try {
 			int [] index = {0,0};
 			mdArray.getValue(index);
-		} catch (Exception e) {
+            fail();
+		} catch (RuntimeException e) {
 			//Expected exception
 		}
 		try {
 			int [] index = {0,0,0,5};
 			mdArray.getValue(index);
-		} catch (Exception e) {
+            fail();
+		} catch (RuntimeException e) {
 			//Expected exception
 		}
 	}
@@ -114,7 +120,7 @@ class MdArrayTests {
 
 	@Test
 	void testFlatMap() {
-		Integer[] maped = mdArray.flatMap();
+		Integer[] maped =  mdArray.flatMap();
 		for(Integer i:maped) {
 			assertEquals(i,42);
 		}
