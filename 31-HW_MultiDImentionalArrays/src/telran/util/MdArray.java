@@ -22,7 +22,7 @@ public class MdArray<T> {
 			}
 		}
 	}
-
+ 
 	public MdArray(int[] dimensions, T value) {
 		this(dimensions, 0, value);
 	}
